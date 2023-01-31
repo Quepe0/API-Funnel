@@ -10,3 +10,4 @@ https://user-images.githubusercontent.com/118996778/215900490-dc6a19c8-8b20-4e17
 | **Information:**
  - After extracting, download packages before running. 
  - Type in cmd: **npm i**
+ - `These repositories are for educational purposes`
