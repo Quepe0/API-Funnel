@@ -1,0 +1,10 @@
+{
+    "HOME": [
+      "http://localhost:3000/test/?user=1&secret=1&method=1",
+      "http://localhost:3000/test/?user=1&secret=1&method=1"
+    ],
+    "VULCAN": [
+      "http://localhost:3000/"
+    ]
+  }
+  
