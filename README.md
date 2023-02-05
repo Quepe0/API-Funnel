@@ -1,9 +1,9 @@
 # H5S [API Funnel]
 API Funnel - To sending ddos attacks.
 
-| **Send Attack:** http://localhost:1337/api/attack&host=&port=&time=&method=
+| **Send Attack:** htt
 
-https://user-images.githubusercontent.com/118996778/215900490-dc6a19c8-8b20-4e17-9164-bff6362bb037.mp4
+https://user-images.githubusercontent.com/118996778/216842161-ea852151-36d1-4043-9fd1-e2a8244eeb21.mp4
 
 | **Requirements:**
  - NodeJS [v17 - v19]
