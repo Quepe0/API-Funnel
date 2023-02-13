@@ -1,10 +1,14 @@
 {
     "HOME": [
-      "http://localhost:3000/test/?user=1&secret=1&method=1",
-      "http://localhost:3000/test/?user=1&secret=1&method=1"
+      "http://localhost:3000/test/?user=h5s&secret=secret&host=[host]&port=[port]&time=[time]&method=HOME",
+      "http://localhost:3000/test/?user=h5s&secret=secret&host=[host]&port=[port]&time=[time]&method=HOME",
+      "http://localhost:3000/test/?user=h5s&secret=secret&host=[host]&port=[port]&time=[time]&method=HOME"
     ],
     "VULCAN": [
-      "http://localhost:3000/"
+      "http://localhost:3000/test/?user=h5s&secret=secret&host=[host]&port=[port]&time=[time]&method=VULCAN"
+    ],
+    "TEST": [
+      "http://localhost:3000/test/?user=h5s&secret=secret&host=[host]&port=[port]&time=[time]&method=TEST"
     ]
   }
   
